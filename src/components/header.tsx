@@ -4,7 +4,7 @@ const Header = () => {
         <header style={{
             backgroundColor:"black",
              height:"100vh",
-             width:"140px",
+             width:"80px",
              color:"white",
              opacity: "0.7",
              position: "absolute",
@@ -22,11 +22,11 @@ const Header = () => {
 
                 <p style={{
                     color:"green",
-                    fontSize:"25pt",
+                    fontSize:"20pt",
                     height: "1vh"
                 }}>【＄】</p>
                 <p style={{
-                    fontSize:"20pt"
+                    fontSize:"13pt"
                 }}>Serenity</p>
             </div>
 
@@ -38,8 +38,7 @@ const Header = () => {
             }}                
             >
                 <button style={{
-                    width:"80%",
-                    height: "100px",
+                    width:"90%",
                     fontSize: "45pt",
                     borderRadius:"100%",
                     backgroundColor: "green",
