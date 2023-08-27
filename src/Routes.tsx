@@ -4,12 +4,13 @@ import Home from './pages/Home';
 
 const Routes: React.FC = () => {
   return (
+
     <Router>
       <RRoutes>
         <Route path="/" element={<Home />} />
-
       </RRoutes>
     </Router>
+
   );
 };
 

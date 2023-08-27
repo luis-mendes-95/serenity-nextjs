@@ -1,5 +1,6 @@
-import React from 'react';
 import bowlsImage from './bowls.png';
+import { useEffect } from 'react'
+import { getBowls, createBowl, deleteBowl, updateBowl } from "../services/api"
 
 const main_bowls = [
   { name: 'Necessidades Básicas', id: "1" },
@@ -10,32 +11,40 @@ const main_bowls = [
   { name: 'Liberdade Financeira', id: "6" }
 ];
 
+let bowls_data = []
+
+useEffect(() => {
+  let response = getBowls();
+  console.log(response) 
+}, [])
+
+
 const Bowls = () => {
   return (
     <ul style={{
       position: "absolute",
       top: "0",
-      right: "0",
+      right: "5%",
       zIndex: "-7",
-      width: "80%",
+      width: "100%",
       display: "flex",
-      flexDirection: "column", // Mudamos para uma coluna
-      alignItems: "flex-start",
-      justifyContent:"center",
+      flexDirection: "column",
+      alignItems: "flex-end",
+      justifyContent: "center",
       overflow: "hidden",
       height: "93vh",
       opacity: "0.7"
     }}>
-
+      <li></li>
       {main_bowls.map((bowl) => {
         return (
           <li key={bowl.id} style={{
-            margin: "3%", // Espaçamento superior e inferior menor
+            margin: "1%", // Espaçamento superior e inferior menor
             padding: "1%", // Espaçamento interno menor
             backgroundColor: "green",
-            width: "90%", // Largura de 100% para ocupar toda a largura do container
+            width: "200px", // Largura de 100% para ocupar toda a largura do container
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "column",
             borderRadius: "5%",
             justifyContent: "space-between",
             alignItems: "center"
@@ -54,7 +63,7 @@ const Bowls = () => {
               color: "white",
               fontSize: "12pt",
               margin: "0",
-              
+
             }}>
               R$ 12.375,60
             </p>
