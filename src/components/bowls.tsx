@@ -1,6 +1,6 @@
 import bowlsImage from './bowls.png';
-import { useEffect } from 'react'
-import { getBowls, createBowl, deleteBowl, updateBowl } from "../services/api"
+
+const userLoggedIn = true;
 
 const main_bowls = [
   { name: 'Necessidades Básicas', id: "1" },
@@ -11,20 +11,13 @@ const main_bowls = [
   { name: 'Liberdade Financeira', id: "6" }
 ];
 
-let bowls_data = []
-
-useEffect(() => {
-  let response = getBowls();
-  console.log(response) 
-}, [])
-
-
 const Bowls = () => {
   return (
     <ul style={{
       position: "absolute",
+      backgroundColor: 'rgb(153, 228, 243)',
       top: "0",
-      right: "5%",
+      right: "0",
       zIndex: "-7",
       width: "100%",
       display: "flex",
@@ -32,17 +25,17 @@ const Bowls = () => {
       alignItems: "flex-end",
       justifyContent: "center",
       overflow: "hidden",
-      height: "93vh",
-      opacity: "0.7"
+      height: "100vh",
+      margin: "0"
     }}>
-      <li></li>
-      {main_bowls.map((bowl) => {
-        return (
+      {userLoggedIn ? (
+        main_bowls.map((bowl) => (
           <li key={bowl.id} style={{
-            margin: "1%", // Espaçamento superior e inferior menor
-            padding: "1%", // Espaçamento interno menor
-            backgroundColor: "green",
-            width: "200px", // Largura de 100% para ocupar toda a largura do container
+            margin: "1%",
+            padding: "1%",
+            backgroundColor: "purple",
+            opacity: "1",
+            width: "200px",
             display: "flex",
             flexDirection: "column",
             borderRadius: "5%",
@@ -51,26 +44,54 @@ const Bowls = () => {
           }}>
             <img src={bowlsImage} style={{
               height: "40px",
-              marginRight: "1%" // Adicionado espaço à direita da imagem
+              marginRight: "1%"
             }} alt={`Imagem de ${bowl.name}`} />
             <p style={{
               color: "white",
               textShadow: "1pt 1pt 1pt black",
               fontSize: "13pt",
-              margin: "0" // Removido espaço inferior
+              margin: "0"
             }}>{bowl.name}</p>
             <p style={{
-              color: "white",
+              color: "lightblue",
               fontSize: "12pt",
               margin: "0",
-
+              textShadow: "1pt 1pt 1pt black",
             }}>
               R$ 12.375,60
             </p>
           </li>
-        );
-      })}
-
+        ))
+      ) : (
+        <>
+          <iframe style={{
+            position:"absolute",
+            right:"-15%",
+            width: "100%",
+            top: "0"
+            
+          }} src="https://giphy.com/embed/72HahsJD4atSE" width="70%" height="360" frameBorder="0" allowFullScreen></iframe>
+          <li style={{
+            color: "black",
+            listStyle: "none",
+            textAlign: "center",
+            width: "100%"
+          }}>
+            <p style={{
+              position: "absolute",
+              bottom: "5%",
+              width: "55%",
+              right: "10%",
+              fontFamily:"serif",
+              fontSize: "14pt",
+              color: "black",
+              textShadow: "1pt 1pt 2pt white"
+            }}>
+              "Descubra o poder de transformar seus sonhos financeiros em realidade com Serenity, seu aliado na jornada para a riqueza e prosperidade, inspirado na sabedoria dos 'potinhos' do livro 'Segredos da Mente Milionária'. Desbloqueie uma nova mentalidade financeira e conquiste a paz financeira que você merece."
+            </p>
+          </li>
+        </>
+      )}
     </ul>
   );
 };

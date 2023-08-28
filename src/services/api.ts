@@ -30,40 +30,4 @@ const handleError = (error: any) => {
   throw error;
 };
 
-async function getBowls() {
-  try {
-    const response = await api.get("bowls/");
-    return response.data;
-  } catch (error) {
-    handleError(error);
-  }
-}
-
-async function createBowl(bowlData: any) {
-  try {
-    const response = await api.post("bowls/", bowlData);
-    return response.data;
-  } catch (error) {
-    handleError(error);
-  }
-}
-
-async function updateBowl(bowlId: any, updatedData: any) {
-  try {
-    const response = await api.patch(`bowls/${bowlId}`, updatedData);
-    return response.data;
-  } catch (error) {
-    handleError(error);
-  }
-}
-
-async function deleteBowl(bowlId: any) {
-  try {
-    const response = await api.delete(`bowls/${bowlId}`);
-    return response.data;
-  } catch (error) {
-    handleError(error);
-  }
-}
-
-export { getBowls, createBowl, updateBowl, deleteBowl };
+export {api, handleError}
