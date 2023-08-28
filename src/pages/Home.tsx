@@ -5,7 +5,7 @@ import Bowls from '../components/bowls';
 
 const Home: React.FC = () => {
   return (
-    <div style={{height:"100vh"}}>
+    <div>
       <Header/>
       <Bowls/>
     </div>

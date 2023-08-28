@@ -1,6 +1,6 @@
 import bowlsImage from './bowls.png';
 
-const userLoggedIn = true;
+const userLoggedIn = false;
 
 const main_bowls = [
   { name: 'Necessidades Básicas', id: "1" },
@@ -33,8 +33,8 @@ const Bowls = () => {
           <li key={bowl.id} style={{
             margin: "1%",
             padding: "1%",
-            backgroundColor: "purple",
-            opacity: "1",
+            backgroundColor: "green",
+            opacity: "0.8",
             width: "200px",
             display: "flex",
             flexDirection: "column",
@@ -79,7 +79,7 @@ const Bowls = () => {
           }}>
             <p style={{
               position: "absolute",
-              bottom: "5%",
+              bottom: "0%",
               width: "55%",
               right: "10%",
               fontFamily:"serif",
